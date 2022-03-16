@@ -1,0 +1,22 @@
+<form [formGroup]="formVal" (ngSubmit)="OnSubmit()">
+  <input type="text" formControlName="name" />
+  <input type="text" formControlName="emailID" />
+
+  <button type="button" (click)="AddnewSubjects()">Add</button>
+  <div formArrayName="interests">
+    <ng-container
+      *ngFor="let control of SubjectList.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <div class="col-xs-8">
+        <input type="text" formControlName="Subject1" />
+      </div>
+
+      <div class="col-xs-2">
+        <input type="text" formControlName="Subject2" />
+      </div>
+    </ng-container>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
